@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Event = () => {
+const Event = ({ event }) => {
     return (
-        <div>
-
+        <div className="col-md-3">
+            <img style={{ height: '300px' }} src={require(`../../images/${event.imageUrl}`).default} alt="" />
+            <h3>{event.name}</h3>
         </div>
     );
 };
