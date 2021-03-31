@@ -1,42 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Event from '../Event/Event';
 
-const events = [
-    {
-        name: 'Child Support',
-        imageUrl: 'childSupport.png'
-    },
-    {
-        name: 'Animal Shelter',
-        imageUrl: 'animalShelter.png'
-    },
-    {
-        name: 'Bird House',
-        imageUrl: 'birdHouse.png'
-    },
-    {
-        name: 'Good Student',
-        imageUrl: 'goodEducation.png'
-    },
-    {
-        name: 'Animal Shelter',
-        imageUrl: 'animalShelter.png'
-    },
-    {
-        name: 'Child Support',
-        imageUrl: 'childSupport.png'
-    },
-    {
-        name: 'Child Support',
-        imageUrl: 'childSupport.png'
-    },
-    {
-        name: 'Child Support',
-        imageUrl: 'childSupport.png'
-    }
-];
-
 const Home = () => {
+
+    const [events, setEvents] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/events')
+            .then(res => res.json())
+            .then(data => setEvents(data))
+    }, [])
+
     return (
         <div className="row">
             {
