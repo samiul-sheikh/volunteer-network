@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
 const AddEvents = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
 
     const onSubmit = data => {
@@ -11,7 +11,7 @@ const AddEvents = () => {
             name: data.name,
             imageURL: imageURL
         }
-        const url = `http://localhost:5000/addEvent`
+        const url = `https://volunteer-network-team.herokuapp.com/addEvent`
         // console.log(data);
         // console.log(eventData);
         fetch(url, {
